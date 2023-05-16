@@ -4,7 +4,7 @@ const next = require('next');
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
-const FlightHandler = require('./pages/flight').default; // Import FlightHandler function
+const FlightHandler = require('./pages/api/flight');
 
 app.prepare().then(() => {
   const server = express();
@@ -22,3 +22,6 @@ app.prepare().then(() => {
     console.log('Server started on port 3000');
   });
 });
+
+
+// http://localhost:3000/api/flight?registration=N67890
